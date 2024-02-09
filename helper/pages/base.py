@@ -17,8 +17,7 @@ class BasePage:
         button.click()
 
     def open_delivery_and_payment(self):
-        button = self.driver.find_element(By.XPATH,
-                                          '//header//ul[contains(@class,"top-menu")]/li/a[contains(@href,"dostavka-i-oplata.html")]')
+        button = self.driver.find_element(By.XPATH,base.delivery_and_payment)
         button.click()
 
     def open_tactic_shoes(self):
