@@ -23,7 +23,7 @@ class BasePage:
     def open_tactic_shoes(self):
         button = self.driver.find_element(By.XPATH,base.menu)
         button.click()
-        button = self.driver.find_element(By.XPATH,base.tactic_shoes)
+        button = self.driver.find_element(By.XPATH, base.tactic_shoes)
         button.click()
 
     def open_guard_clothes(self):
