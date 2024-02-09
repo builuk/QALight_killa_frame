@@ -4,6 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from helper.xpath import base
 
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -13,19 +14,17 @@ class BasePage:
         button.click()
 
     def open_about(self):
-        button = self.driver.find_element(By.XPATH,base.about)
+        button = self.driver.find_element(By.XPATH, base.about)
         button.click()
 
     def open_delivery_and_payment(self):
-        button = self.driver.find_element(By.XPATH,base.delivery_and_payment)
+        button = self.driver.find_element(By.XPATH, base.delivery_and_payment)
         button.click()
 
     def open_tactic_shoes(self):
-        button = self.driver.find_element(By.XPATH,
-                                          '//div[contains(@class,"mainmenublock")]//div[contains(@class,"mainmenu")]')
+        button = self.driver.find_element(By.XPATH, base.menu)
         button.click()
-        button = self.driver.find_element(By.XPATH,
-                                          '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/obuv")]')
+        button = self.driver.find_element(By.XPATH, base.tactic_shoes)
         button.click()
 
     def open_guard_clothes(self):
@@ -43,6 +42,7 @@ class BasePage:
         button1 = self.driver.find_element(By.XPATH,
                                            '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/dlya-politsii")]')
         button1.click()
+
 
 class TacticShoes(BasePage):
     def __init__(self, driver):
@@ -76,18 +76,19 @@ class Products(BasePage):
                 product_list.append(images[i].get_attribute('src'))
         return product_list
 
+
 class PoliceUniform(BasePage):
     def init(self, driver):
         super().init(driver)
 
     def create_uniform_list(self):
-         uniform_list = []
-         labels = self.driver.find_elements(By.XPATH, '//div/a[contains(@href,"katalog/")]/p')
-         for label in labels:
-             # a = label.text
-             # shoes_list.append(a.title())
-             uniform_list.append(label.text)
-         return uniform_list
+        uniform_list = []
+        labels = self.driver.find_elements(By.XPATH, '//div/a[contains(@href,"katalog/")]/p')
+        for label in labels:
+            # a = label.text
+            # shoes_list.append(a.title())
+            uniform_list.append(label.text)
+        return uniform_list
 
     def open_police_accessories(self):
         button1 = self.driver.find_element(By.XPATH,
