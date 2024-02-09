@@ -1,0 +1,1 @@
+about = '//header//ul[contains(@class,"top-menu")]/li/a[contains(@href,"o-nas.html")]'

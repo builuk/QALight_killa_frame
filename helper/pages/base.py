@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from helper.xpath import base
 
 class BasePage:
     def __init__(self, driver):
@@ -13,8 +13,7 @@ class BasePage:
         button.click()
 
     def open_about(self):
-        button = self.driver.find_element(By.XPATH,
-                                          '//header//ul[contains(@class,"top-menu")]/li/a[contains(@href,"o-nas.html")]')
+        button = self.driver.find_element(By.XPATH,base.about)
         button.click()
 
     def open_delivery_and_payment(self):
