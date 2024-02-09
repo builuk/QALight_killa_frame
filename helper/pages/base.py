@@ -10,7 +10,7 @@ class BasePage:
         self.driver = driver
 
     def open_homepage(self):
-        button = self.driver.find_element(By.XPATH, '//div[@id="logo"]')
+        button = self.driver.find_element(By.XPATH, base.home)
         button.click()
 
     def open_about(self):
@@ -28,11 +28,9 @@ class BasePage:
         button.click()
 
     def open_guard_clothes(self):
-        button = self.driver.find_element(By.XPATH,
-                                          '//div[contains(@class,"mainmenublock")]//div[contains(@class,"mainmenu")]')
+        button = self.driver.find_element(By.XPATH,base.menu)
         button.click()
-        button = self.driver.find_element(By.XPATH,
-                                          '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/forma-ohranyi")]')
+        button = self.driver.find_element(By.XPATH,base.guard_clothes)
         button.click()
 
     def open_police_uniform(self):
