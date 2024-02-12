@@ -22,10 +22,14 @@ class BasePage:
         button.click()
 
     def open_tactic_shoes(self):
-        button = self.driver.find_element(By.XPATH, base.menu)
-        button.click()
-        button = self.driver.find_element(By.XPATH, base.tactic_shoes)
-        button.click()
+        #waiter
+        return self.driver.find_element(By.XPATH, base.tactic_shoes)
+
+
+    def open_menu(self):
+        #waiter
+        return self.driver.find_element(By.XPATH, base.menu)
+
 
     def open_guard_clothes(self):
         button = self.driver.find_element(By.XPATH, base.menu)
@@ -52,6 +56,13 @@ class TacticShoes(BasePage):
             # shoes_list.append(a.title())
             shoes_list.append(label.text)
         return shoes_list
+
+    # def sneakers_image(self):
+    #     image = self.driver.find_element(By.XPATH, base.sneakers)
+    #     return image.get_attribute('src')
+    def sneakers_image(self):
+        return self.driver.find_element(By.XPATH, base.sneakers)
+
 
 
 class Products(BasePage):
@@ -87,7 +98,7 @@ class PoliceUniform(BasePage):
         return uniform_list
 
     def open_police_accessories(self):
-        button1 = self.driver.find_element(By.XPATH,   base.open_police_accessories)
+        button1 = self.driver.find_element(By.XPATH, base.open_police_accessories)
         button1.click()
 
     def open_police_hats(self):
