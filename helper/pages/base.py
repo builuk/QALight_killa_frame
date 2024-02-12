@@ -28,17 +28,15 @@ class BasePage:
         button.click()
 
     def open_guard_clothes(self):
-        button = self.driver.find_element(By.XPATH,base.menu)
+        button = self.driver.find_element(By.XPATH, base.menu)
         button.click()
-        button = self.driver.find_element(By.XPATH,base.guard_clothes)
+        button = self.driver.find_element(By.XPATH, base.guard_clothes)
         button.click()
 
     def open_police_uniform(self):
-        button1 = self.driver.find_element(By.XPATH,
-                                           '//div[contains(@class,"mainmenublock")]//div[contains(@class,"mainmenu")]')
+        button1 = self.driver.find_element(By.XPATH, base.menu)
         button1.click()
-        button1 = self.driver.find_element(By.XPATH,
-                                           '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/dlya-politsii")]')
+        button1 = self.driver.find_element(By.XPATH, base.police_uniform)
         button1.click()
 
 
