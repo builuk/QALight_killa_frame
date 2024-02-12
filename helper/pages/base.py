@@ -28,17 +28,15 @@ class BasePage:
         button.click()
 
     def open_guard_clothes(self):
-        button = self.driver.find_element(By.XPATH,base.menu)
+        button = self.driver.find_element(By.XPATH, base.menu)
         button.click()
-        button = self.driver.find_element(By.XPATH,base.guard_clothes)
+        button = self.driver.find_element(By.XPATH, base.guard_clothes)
         button.click()
 
     def open_police_uniform(self):
-        button1 = self.driver.find_element(By.XPATH,
-                                           '//div[contains(@class,"mainmenublock")]//div[contains(@class,"mainmenu")]')
+        button1 = self.driver.find_element(By.XPATH, base.menu)
         button1.click()
-        button1 = self.driver.find_element(By.XPATH,
-                                           '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/dlya-politsii")]')
+        button1 = self.driver.find_element(By.XPATH, base.police_uniform)
         button1.click()
 
 
@@ -76,8 +74,8 @@ class Products(BasePage):
 
 
 class PoliceUniform(BasePage):
-    def init(self, driver):
-        super().init(driver)
+    def __init__(self, driver):
+        super().__init__(driver)
 
     def create_uniform_list(self):
         uniform_list = []
@@ -89,8 +87,7 @@ class PoliceUniform(BasePage):
         return uniform_list
 
     def open_police_accessories(self):
-        button1 = self.driver.find_element(By.XPATH,
-                                           '//div[@class="col-xs-12"]/div/ul/li//a[contains(@href,"aksessuaryi-dlya-politsii")]/p[contains(@style,"height:")]')
+        button1 = self.driver.find_element(By.XPATH,   base.open_police_accessories)
         button1.click()
 
     def open_police_hats(self):
