@@ -74,8 +74,8 @@ class Products(BasePage):
 
 
 class PoliceUniform(BasePage):
-    def init(self, driver):
-        super().init(driver)
+    def __init__(self, driver):
+        super().__init__(driver)
 
     def create_uniform_list(self):
         uniform_list = []
@@ -87,8 +87,7 @@ class PoliceUniform(BasePage):
         return uniform_list
 
     def open_police_accessories(self):
-        button1 = self.driver.find_element(By.XPATH,
-                                           '//div[@class="col-xs-12"]/div/ul/li//a[contains(@href,"aksessuaryi-dlya-politsii")]/p[contains(@style,"height:")]')
+        button1 = self.driver.find_element(By.XPATH,   base.open_police_accessories)
         button1.click()
 
     def open_police_hats(self):
