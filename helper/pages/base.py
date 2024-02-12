@@ -87,7 +87,7 @@ class PoliceUniform(BasePage):
         return uniform_list
 
     def open_police_accessories(self):
-        button1 = self.driver.find_element(By.XPATH, base.open_police_accessories)
+        button1 = self.driver.find_element(By.XPATH,   base.open_police_accessories)
         button1.click()
 
     def open_police_hats(self):
