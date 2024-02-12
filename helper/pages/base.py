@@ -74,7 +74,7 @@ class Products(BasePage):
 
 
 class PoliceUniform(BasePage):
-    def init(self, driver):
+    def __init__(self, driver):
         super().__init__(driver)
 
     def create_uniform_list(self):
