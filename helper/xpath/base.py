@@ -4,3 +4,4 @@ delivery_and_payment = '//header//ul[contains(@class,"top-menu")]/li/a[contains(
 menu = '//div[contains(@class,"mainmenublock")]//div[contains(@class,"mainmenu")]'
 tactic_shoes = '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/obuv")]'
 guard_clothes = '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/forma-ohranyi")]'
+fishing_hunting ='//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/ryibalka-i-ohota/")]'
