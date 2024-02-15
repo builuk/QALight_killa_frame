@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from helper.xpath import base
+#1
 
 
 class BasePage:
@@ -31,6 +32,7 @@ class BasePage:
     def open_menu(self):
         # waiter
         return self.driver.find_element(By.XPATH, base.menu)
+
 
     def open_guard_clothes(self):
         button = self.driver.find_element(By.XPATH, base.menu)
@@ -63,7 +65,6 @@ class TacticShoes(BasePage):
     #     return image.get_attribute('src')
     def sneakers_image(self):
         return self.driver.find_element(By.XPATH, base.sneakers)
-
 
 class Products(BasePage):
     def __init__(self, driver):
