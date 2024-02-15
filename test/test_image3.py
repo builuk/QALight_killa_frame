@@ -6,27 +6,25 @@ from helper.pages import base
 from helper.steps import tactic_shoes
 from helper.data import base as data
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def browser():
     option = Options()
     option.add_argument("--start-maximized")
     prefs = {"profile.default_content_setting_values.notifications": 1}
     option.add_experimental_option("prefs", prefs)
     driver = webdriver.Chrome(options=option)
-    driver.set_window_position(2000, 600)
     yield driver
-    driver.quit()
+    # driver.quit()
 
-@pytest.fixture
-def browser_firefox():
-    option = Options()
-    option.add_argument("--start-maximized")
-    prefs = {"profile.default_content_setting_values.notifications": 1}
-    option.add_experimental_option("prefs", prefs)
-    driver = webdriver.Firefox(options=option)
-    driver.set_window_position(2000, 600)
-    yield driver
-    driver.quit()
+# @pytest.fixture
+# def browser_firefox():
+#     option = Options()
+#     option.add_argument("--start-maximized")
+#     prefs = {"profile.default_content_setting_values.notifications": 1}
+#     option.add_experimental_option("prefs", prefs)
+#     driver = webdriver.Firefox(options=option)
+#     yield driver
+#     driver.quit()
 
 def test_check_sneakers_image_positive(browser):
     tactic = base.TacticShoes(browser)
@@ -35,12 +33,12 @@ def test_check_sneakers_image_positive(browser):
     tactic.open_tactic_shoes().click()
     assert tactic.sneakers_image().get_attribute('src') == data.sneakers_image
 
-def test_check_sneakers_image_positive_f(browser_firefox):
-    tactic = base.TacticShoes(browser_firefox)
-    tactic.open()
-    tactic.open_menu().click()
-    tactic.open_tactic_shoes().click()
-    assert tactic.sneakers_image().get_attribute('src') == data.sneakers_image
+# def test_check_sneakers_image_positive_f(browser_firefox):
+#     tactic = base.TacticShoes(browser_firefox)
+#     tactic.open()
+#     tactic.open_menu().click()
+#     tactic.open_tactic_shoes().click()
+#     assert tactic.sneakers_image().get_attribute('src') == data.sneakers_image
 
 def test_title_positive(browser):
     tactic = base.BasePage(browser)

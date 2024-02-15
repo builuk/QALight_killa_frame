@@ -8,3 +8,4 @@ police_uniform = '//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/
 open_police_accessories = '//div[@class="col-xs-12"]/div/ul/li//a[contains(@href,"aksessuaryi-dlya-politsii")]/p[contains(@style,"height:")]'
 sneakers = '//div/a[contains(@href,"katalog/obuv/obuvv/krossovki")]/img'
 fishing_hunting ='//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/ryibalka-i-ohota/")]'
+about_title = '//h1[@class="col-xs-12"]'
