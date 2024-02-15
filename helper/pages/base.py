@@ -10,6 +10,9 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    def open(self):
+        self.driver.get('https://killa.com.ua/')
+
     def open_homepage(self):
         button = self.driver.find_element(By.XPATH, base.home)
         button.click()
@@ -23,12 +26,11 @@ class BasePage:
         button.click()
 
     def open_tactic_shoes(self):
-        #waiter
+        # waiter
         return self.driver.find_element(By.XPATH, base.tactic_shoes)
 
-
     def open_menu(self):
-        #waiter
+        # waiter
         return self.driver.find_element(By.XPATH, base.menu)
 
 
@@ -63,8 +65,6 @@ class TacticShoes(BasePage):
     #     return image.get_attribute('src')
     def sneakers_image(self):
         return self.driver.find_element(By.XPATH, base.sneakers)
-
-
 
 class Products(BasePage):
     def __init__(self, driver):

@@ -20,7 +20,7 @@ driver = webdriver.Chrome(options=option)
 
 url = 'https://killa.com.ua/'
 driver.get(url)
-
+print(driver.title)
 
 home = BasePage(driver)
 shoes = TacticShoes(driver)
