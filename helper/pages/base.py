@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,7 +13,13 @@ class BasePage:
         self.driver = driver
 
     def open(self):
+        time.sleep(3)
         self.driver.get('https://killa.com.ua/')
+        time.sleep(3)
+
+    def about_title(self):
+        title_about = self.driver.find_element(By.XPATH, base.about_title)
+        return title_about.text
 
     def open_homepage(self):
         button = self.driver.find_element(By.XPATH, base.home)
