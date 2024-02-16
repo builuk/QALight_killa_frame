@@ -3,14 +3,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from helper.xpath import base
-
+import time
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
     def open(self):
+        time.sleep(3)
         self.driver.get('https://killa.com.ua/')
+        time.sleep(3)
 
     def open_homepage(self):
         button = self.driver.find_element(By.XPATH, base.home)
@@ -26,9 +28,11 @@ class BasePage:
 
     def open_tactic_shoes(self):
         # waiter
+        time.sleep(3)
         return self.driver.find_element(By.XPATH, base.tactic_shoes)
 
     def open_menu(self):
+        time.sleep(3)
         # waiter
         return self.driver.find_element(By.XPATH, base.menu)
 
@@ -62,6 +66,7 @@ class TacticShoes(BasePage):
     #     image = self.driver.find_element(By.XPATH, base.sneakers)
     #     return image.get_attribute('src')
     def sneakers_image(self):
+        time.sleep(3)
         return self.driver.find_element(By.XPATH, base.sneakers)
 
 

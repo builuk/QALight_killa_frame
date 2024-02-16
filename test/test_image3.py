@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from helper.pages import base
 from helper.steps import tactic_shoes
 from helper.data import base as data
+import behave
 
 @pytest.fixture
 def browser():
@@ -13,7 +14,6 @@ def browser():
     prefs = {"profile.default_content_setting_values.notifications": 1}
     option.add_experimental_option("prefs", prefs)
     driver = webdriver.Chrome(options=option)
-    driver.set_window_position(2000, 600)
     yield driver
     driver.quit()
 
@@ -24,7 +24,6 @@ def browser_firefox():
     prefs = {"profile.default_content_setting_values.notifications": 1}
     option.add_experimental_option("prefs", prefs)
     driver = webdriver.Firefox(options=option)
-    driver.set_window_position(2000, 600)
     yield driver
     driver.quit()
 
