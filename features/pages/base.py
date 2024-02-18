@@ -10,23 +10,24 @@ from helper.xpath import base
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
+        self.url = 'https://killa.com.ua/'
 
     def open(self):
-        time.sleep(3)
-        self.driver.get('https://killa.com.ua/')
-        time.sleep(3)
+        self.driver.get(self.url)
 
     def about_title(self):
-        title_about = self.driver.find_element(By.XPATH, base.about_title)
-        return title_about.text
+        return self.driver.find_element(By.XPATH, base.about_title)
+
+    def return_title(self):
+        return self.driver.title
 
     def open_homepage(self):
-        button = self.driver.find_element(By.XPATH, base.home)
-        button.click()
+        self.driver.find_element(By.XPATH, base.home).click()
+
 
     def open_about(self):
-        button = self.driver.find_element(By.XPATH, base.about)
-        button.click()
+        self.driver.find_element(By.XPATH, base.about).click()
+
 
     def open_delivery_and_payment(self):
         button = self.driver.find_element(By.XPATH, base.delivery_and_payment)
