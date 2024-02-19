@@ -128,3 +128,4 @@ class PoliceUniform(BasePage):
         button1 = self.driver.find_element(By.XPATH,
                                            '//div[@class="col-xs-12"]/div/ul/li//a[contains(@href,"politseyskoe-snaryajenie")]/p[contains(@style,"height:")]')
         button1.click()
+ #1

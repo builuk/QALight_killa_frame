@@ -29,28 +29,3 @@ def check_title(context, title):
     actual_title = context.base_page.return_title()
     expected_title = getattr(base, title)
     assert actual_title == expected_title, f"Expected title: {expected_title}, but got: {actual_title}"
-
-# from selenium import webdriver
-#
-# @given('I open Homepage')
-# def open_homepage(context):
-#     context.browser = webdriver.Chrome()  # Пример использования браузера Chrome
-#     context.browser.get("http://yourwebsite.com")
-# from behave import given, when, then
-#
-# @given('пользователь открыл страницу с каталогом товаров')
-# def step_open_catalog(context):
-#     # Код для открытия страницы с каталогом товаров
-#
-# @when('пользователь добавляет товар "{product}" в корзину')
-# def step_add_to_cart(context, product):
-#     # Код для добавления товара в корзину
-#
-# @then('корзина должна содержать {count:d} товара')
-# def step_check_cart_count(context, count):
-#     # Проверка, что корзина содержит указанное количество товаров
-#
-# @then('сумма товаров в корзине должна быть равна сумме "{product1}" и "{product2}"')
-# def step_check_cart_sum(context, product1, product2):
-#     # Проверка, что сумма товаров в корзине равна сумме указанных товаров
-#
