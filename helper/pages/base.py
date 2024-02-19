@@ -75,7 +75,7 @@ class TacticShoes(BasePage):
 
     def quantity_of_images(self):
         shoes_items_list = []
-        items = self.driver.find_elements(By.XPATH, base.list_of_shoes_images)
+        items = self.driver.find_elements(By.XPATH, base.list_of_shoes_item_images)
         for item in items:
             shoes_items_list.append(item.text)
             number_of_list = len(shoes_items_list)
