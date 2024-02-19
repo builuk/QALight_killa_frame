@@ -2,7 +2,7 @@ Feature: Check headers on all pages
   As unregistered user
   I want to check all button in header
   So I can click on any button in the header
-  and redirect to relevant page
+  and redirect to relevant page.
 
   Scenario: Title on Home page
     When I open Homepage
