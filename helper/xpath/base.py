@@ -9,3 +9,4 @@ open_police_accessories = '//div[@class="col-xs-12"]/div/ul/li//a[contains(@href
 sneakers = '//div/a[contains(@href,"katalog/obuv/obuvv/krossovki")]/img'
 fishing_hunting ='//div[contains(@class,"mainmenu")]/ul[@class="list-unstyled"]/li/a[contains(@href,"katalog/ryibalka-i-ohota/")]'
 about_title = '//h1[@class="col-xs-12"]'
+list_of_shoes_images = "//div[contains(@class,'col-xs-12')]/div[contains(@class,'row')]/ul/li/div/a[contains(@href,'https://killa.com.ua/katalog/')]"
