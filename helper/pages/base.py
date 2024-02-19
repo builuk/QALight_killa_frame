@@ -54,7 +54,6 @@ class BasePage:
         button1 = self.driver.find_element(By.XPATH, base.police_uniform)
         button1.click()
 
-
 class TacticShoes(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
@@ -73,6 +72,15 @@ class TacticShoes(BasePage):
     #     return image.get_attribute('src')
     def sneakers_image(self):
         return self.driver.find_element(By.XPATH, base.sneakers)
+
+    def quantity_of_images(self):
+        shoes_items_list = []
+        items = self.driver.find_elements(By.XPATH, base.list_of_shoes_images)
+        for item in items:
+            shoes_items_list.append(item.text)
+            number_of_list = len(shoes_items_list)
+        return number_of_list
+
 
 class Products(BasePage):
     def __init__(self, driver):
@@ -129,3 +137,5 @@ class PoliceUniform(BasePage):
         button1 = self.driver.find_element(By.XPATH,
                                            '//div[@class="col-xs-12"]/div/ul/li//a[contains(@href,"politseyskoe-snaryajenie")]/p[contains(@style,"height:")]')
         button1.click()
+
+
