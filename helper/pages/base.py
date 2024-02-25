@@ -54,6 +54,12 @@ class BasePage:
         button1 = self.driver.find_element(By.XPATH, base.police_uniform)
         button1.click()
 
+    def open_tourism_camping(self):
+        category_button = self.driver.find_element(By.XPATH, base.menu)
+        category_button.click()
+        button_tourism_camping = self.driver.find_element(By.XPATH, base.tourism_and_camping)
+        button_tourism_camping.click()
+
 class TacticShoes(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
@@ -137,5 +143,54 @@ class PoliceUniform(BasePage):
         button1 = self.driver.find_element(By.XPATH,
                                            '//div[@class="col-xs-12"]/div/ul/li//a[contains(@href,"politseyskoe-snaryajenie")]/p[contains(@style,"height:")]')
         button1.click()
+
+class TourismCamping(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+
+    def check_tourist_equipment_category_list(self):
+        tourist_equipment_list = []
+        labels = self.driver.find_elements(By.XPATH, base.list_of_items_equipments)
+        for label in labels:
+            tourist_equipment_list.append(label.text)
+            number_of_list = len(tourist_equipment_list)
+        return number_of_list
+
+    def images_equipments(self):
+        list_of_links = []
+        not_displayed_img = self.driver.find_elements(By.XPATH, base.not_displayed_img)
+        links = self.driver.find_elements(By.XPATH, base.list_of_items_equipments)
+        for img in not_displayed_img:
+           #list_of_links.append(img)
+            for link in links:
+                list_of_links.append(link.text)
+            return list_of_links
+
+    def open_generators_and_charging_stations_link(self):
+        generators_and_charging_stations_link = self.driver.find_element(By.XPATH, base.generators_and_charging_stations_link)
+        generators_and_charging_stations_link.click()
+
+
+    def check_images_for_items(self):
+        list_of_items=[]
+        items = self.driver.find_elements(By.XPATH, base.list_of_item_images)
+        for item in items:
+            list_of_items.append(item)
+            return list_of_items
+        if len(list_of_items) == 0:
+            print("All images are displayed")
+
+
+    def click_on_list_of_generators(self):
+        list_of_generators = self.driver.find_element(By.XPATH, base.list_of_generators)
+        list_of_generators.click()
+
+    def check_tourist_items_equipment_list(self):
+        tourist_items_equipment_list = []
+        items = self.driver.find_elements(By.XPATH, base.items_of_tourism_equipments_list)
+        for item in items:
+            tourist_items_equipment_list.append(item.title)
+            number_of_list = len(tourist_items_equipment_list)
+        return number_of_list
 
 
