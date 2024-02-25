@@ -29,3 +29,10 @@ def quantity_of_tourism_and_camping_equipments_categories(browser):
     home.open_menu().click()
     home.open_tourism_camping().click()
     assert tourism.check_tourist_equipment_category_list() == data.quantity_of_tourist_equipment_category_list
+
+def check_opening_generators_and_charging_stations_link(browser):
+    home = base.BasePage(browser)
+    home.open()
+    home.open_menu().click()
+    home.open_tourism_camping().click()
+    assert browser.title == data.generators_and_charging_stations_link
