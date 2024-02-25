@@ -16,9 +16,16 @@ def browser():
     yield driver
 
 def open_tourism_and_camping_category(browser):
-    tourism_and_camping = base.TourismCamping(browser)
     home = base.BasePage(browser)
     home.open()
     home.open_menu().click()
     home.open_tourism_camping().click()
     assert browser.title == data.tourism_and_camping
+
+def quantity_of_tourism_and_camping_equipments_categories(browser):
+    tourism = base.TourismCamping(browser)
+    home = base.BasePage(browser)
+    home.open()
+    home.open_menu().click()
+    home.open_tourism_camping().click()
+    assert tourism.check_tourist_equipment_category_list() == data.quantity_of_tourist_equipment_category_list

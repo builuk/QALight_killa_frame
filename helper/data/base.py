@@ -3,4 +3,5 @@ site_title = '【Военторг】 , армейский магазин, вое
 about_title = 'О МАГАЗИНЕ'
 tourism_and_camping = 'Туризм, Кемпинг'
 quantity_of_images = 26
+quantity_of_tourist_equipment_category_list = 39
 
