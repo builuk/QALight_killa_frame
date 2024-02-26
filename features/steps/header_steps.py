@@ -18,14 +18,23 @@ def open_homepage(context):
     context.base_page.open()
 
 
+@then('I switch to ua language')
+def switch_to_ua(context):
+    context.base_page.switch_to_ua()
+
+
 @then('I click on About button')
 def click_about(context):
     context.base_page.open_about()
-    time.sleep(10)
 
 
-@given('I see title default "{title}"')
+@then('I click on "{button}" button')
+def click_about(context, button):
+    context.base_page.open_header_button(button)
+
+
+@given('I see title "{title}"')
 def check_title(context, title):
-    actual_title = context.base_page.return_title()
     expected_title = getattr(base, title)
+    actual_title = context.base_page.return_title(expected_title)
     assert actual_title == expected_title, f"Expected title: {expected_title}, but got: {actual_title}"
