@@ -6,20 +6,9 @@ Feature: Check titles on all pages
 
   Scenario: Title on Home page
     When I open Homepage
-    Given I see title default "site_title"
+    Given I see title "site_title"
 
   Scenario: Title on About page
     When I open Homepage
     Then I click on About button
-    Given I see title default "about_title"
-
-#  Scenario Outline: Names on Home page
-#    When I open Homepage
-#    Given I see title default "<name>"
-#    Given I see title default "<result>"
-#    Examples:
-#      | name | result |
-#      | 1    | a      |
-#      | 2    | b      |
-#      | 3    | c      |
-#
+    Given I see title "about_title"

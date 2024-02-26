@@ -4,7 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from helper.xpath import base
+from helper.xpath import base, headers
+from helper.waiters import header_waiters
 
 
 class BasePage:
@@ -16,43 +17,48 @@ class BasePage:
         self.driver.get(self.url)
 
     def about_title(self):
+        header_waiters.wait_page(self.driver)
         return self.driver.find_element(By.XPATH, base.about_title)
 
-    def return_title(self):
+    def return_title(self, expected_title):
+        header_waiters.wait_title(self.driver, expected_title)
         return self.driver.title
 
     def open_homepage(self):
+        header_waiters.wait_for_element_located(self.driver, base.home)
         self.driver.find_element(By.XPATH, base.home).click()
 
-
     def open_about(self):
+        header_waiters.wait_for_element_located(self.driver, base.about)
         self.driver.find_element(By.XPATH, base.about).click()
 
+    def open_header_button(self, button):
+        header_waiters.wait_for_element_located(self.driver, headers.pages_xpath_template(getattr(headers, button)))
+        self.driver.find_element(By.XPATH, headers.pages_xpath_template(getattr(headers, button))).click()
 
     def open_delivery_and_payment(self):
-        button = self.driver.find_element(By.XPATH, base.delivery_and_payment)
-        button.click()
+        header_waiters.wait_for_element_located(self.driver, base.delivery_and_payment)
+        self.driver.find_element(By.XPATH, base.delivery_and_payment).click()
 
     def open_tactic_shoes(self):
-        # waiter
-        return self.driver.find_element(By.XPATH, base.tactic_shoes)
+        header_waiters.wait_for_element_located(self.driver, base.tactic_shoes)
+        self.driver.find_element(By.XPATH, base.tactic_shoes).click()
 
     def open_menu(self):
-        # waiter
-        return self.driver.find_element(By.XPATH, base.menu)
-
+        header_waiters.wait_for_element_located(self.driver, base.menu)
+        self.driver.find_element(By.XPATH, base.menu).click()
 
     def open_guard_clothes(self):
-        button = self.driver.find_element(By.XPATH, base.menu)
-        button.click()
-        button = self.driver.find_element(By.XPATH, base.guard_clothes)
-        button.click()
+        header_waiters.wait_for_element_located(self.driver, base.guard_clothes)
+        self.driver.find_element(By.XPATH, base.guard_clothes).click()
 
     def open_police_uniform(self):
-        button1 = self.driver.find_element(By.XPATH, base.menu)
-        button1.click()
-        button1 = self.driver.find_element(By.XPATH, base.police_uniform)
-        button1.click()
+        header_waiters.wait_for_element_located(self.driver, base.police_uniform)
+        self.driver.find_element(By.XPATH, base.police_uniform).click()
+
+    def switch_to_ua(self):
+        header_waiters.wait_for_element_located(self.driver, headers.language_ua)
+        self.driver.find_element(By.XPATH, headers.language_ua).click()
 
 
 class TacticShoes(BasePage):
@@ -73,6 +79,7 @@ class TacticShoes(BasePage):
     #     return image.get_attribute('src')
     def sneakers_image(self):
         return self.driver.find_element(By.XPATH, base.sneakers)
+
 
 class Products(BasePage):
     def __init__(self, driver):
