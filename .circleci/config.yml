@@ -12,13 +12,8 @@ jobs:
           path: ~/repo
           persist_to_workspace:
             root: ~/repo
-          git:
-            depth: 1
-            submodules: false
-            fetch_tags: false
-            url: https://github.com/builuk/QALight_killa_frame.git
 
-      # Install Chrome dependencies
+
       - run:
           name: Install Chrome dependencies
           command: |
@@ -29,7 +24,6 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y google-chrome-stable
 
-      # Install ChromeDriver
       - run:
           name: Install ChromeDriver
           command: |
@@ -39,14 +33,12 @@ jobs:
             chmod +x chromedriver-linux64/chromedriver
             sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
 
-      # Install Python dependencies
       - run:
           name: Install Python dependencies
           command: |
             pip install -r requirements.txt
             pip install selenium
 
-      # Run tests
       - run:
           name: Run tests
           command: |
