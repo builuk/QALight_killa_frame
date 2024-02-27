@@ -10,10 +10,10 @@ from selenium.webdriver.chrome.options import Options
 @when('I open Homepage')
 def open_homepage(context):
     option = Options()
-    option.add_argument("--start-maximized")
+    option.add_argument("--window-size=1920,1080")
     prefs = {"profile.default_content_setting_values.notifications": 1}
     option.add_experimental_option("prefs", prefs)
-    option.add_argument('--remote-debugging-pipe')
+    # option.add_argument('--remote-debugging-pipe')
     chrome_driver_path = '/usr/bin/chromedriver'
     option.binary_location = "/usr/bin/google-chrome"
     option.add_argument("executable_path=" + chrome_driver_path)
