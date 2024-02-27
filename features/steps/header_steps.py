@@ -10,19 +10,11 @@ from selenium.webdriver.chrome.options import Options
 @when('I open Homepage')
 def open_homepage(context):
     option = Options()
-    option.add_argument("--start-maximized")
-    option.add_argument("--disable-infobars")
-    option.add_argument("--disable-extensions")
-    option.add_argument("--disable-gpu")
-    option.add_argument("--no-sandbox")
-    option.add_argument("--disable-dev-shm-usage")
-
     prefs = {"profile.default_content_setting_values.notifications": 1}
     option.add_experimental_option("prefs", prefs)
-
-    chrome_driver_path = '/usr/local/bin/chromedriver'
-    option.binary_location = "/usr/bin/google-chrome"
-    option.add_argument("executable_path=" + chrome_driver_path)
+    # chrome_driver_path = '/usr/local/bin/chromedriver'
+    # option.binary_location = "/usr/bin/google-chrome"
+    # option.add_argument("executable_path=" + chrome_driver_path)
 
     context.browser = webdriver.Chrome(options=option)
     context.base_page = pages.BasePage(context.browser)
