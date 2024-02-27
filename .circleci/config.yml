@@ -39,8 +39,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            pytest
-            behave
+            behave features/test
 
 workflows:
   version: 2
