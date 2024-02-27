@@ -10,7 +10,6 @@ from selenium.webdriver.chrome.options import Options
 @when('I open Homepage')
 def open_homepage(context):
     option = Options()
-    option.add_argument("--start-maximized")
     prefs = {"profile.default_content_setting_values.notifications": 1}
     option.add_experimental_option("prefs", prefs)
     context.browser = webdriver.Chrome(options=option)
