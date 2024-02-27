@@ -4,8 +4,6 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.9
-        environment:
-          CHROME_BIN: /usr/bin/google-chrome
 
     working_directory: ~/repo
 
@@ -20,16 +18,16 @@ jobs:
             fetch_tags: false
             url: https://github.com/builuk/QALight_killa_frame.git
 
-      # Install Chrome and ChromeDriver
+      # Install Chrome dependencies
       - run:
-          name: Install Chrome and ChromeDriver
+          name: Install Chrome dependencies
           command: |
             sudo apt-get update
+            sudo apt-get install -y wget gnupg
+            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+            sudo apt-get update
             sudo apt-get install -y google-chrome-stable
-            LATEST_CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-            curl -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-            sudo unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
-            sudo chmod +x /usr/local/bin/chromedriver
 
       # Install dependencies
       - run:
@@ -41,7 +39,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-            behave features/test
+            pytest
+            behave
 
 workflows:
   version: 2
