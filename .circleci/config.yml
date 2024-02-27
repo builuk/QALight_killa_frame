@@ -3,15 +3,10 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/python:3.9
-
-    working_directory: ~/repo
-
+      - image: cimg/python:3.9.17
     steps:
-      - checkout:
-          path: ~/repo
-          persist_to_workspace:
-            root: ~/repo
+      - checkout
+      - run: python --version
 
 
       - run:
