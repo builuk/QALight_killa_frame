@@ -13,7 +13,8 @@ def open_homepage(context):
     option.add_argument("--start-maximized")
     prefs = {"profile.default_content_setting_values.notifications": 1}
     option.add_experimental_option("prefs", prefs)
-    chrome_driver_path = '/usr/bin/google-chrome'
+    chrome_driver_path = '/usr/bin/chromedriver'
+    option.binary_location = "/usr/bin/google-chrome"
     option.add_argument("executable_path=" + chrome_driver_path)
     context.browser = webdriver.Chrome(options=option)
     context.base_page = pages.BasePage(context.browser)
