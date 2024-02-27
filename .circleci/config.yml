@@ -50,7 +50,9 @@ jobs:
       - run:
           name: Run tests
           command: |
-            behave features/test --no-sandbox
+            export CHROME_BIN=/usr/bin/google-chrome
+            export CHROME_PATH=/usr/bin/google-chrome
+            behave features/test
 
 workflows:
   version: 2
