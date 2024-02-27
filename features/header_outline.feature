@@ -22,3 +22,4 @@ Feature: Check titles on all pages in ua language
       | path_return_and_replacement | return_and_replacement_ua |
       | path_contacts               | contacts_ua               |
       | path_help                   | help_ua                   |
+
