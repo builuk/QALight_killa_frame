@@ -17,7 +17,7 @@ class BasePage:
         self.driver.get(self.url)
 
     def about_title(self):
-        header_waiters.wait_page(self.driver)
+        header_waiters.wait_title(self.driver)
         return self.driver.find_element(By.XPATH, base.about_title)
 
     def return_title(self, expected_title):
