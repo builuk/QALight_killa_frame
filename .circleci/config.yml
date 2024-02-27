@@ -8,7 +8,15 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - checkout
+      - checkout:
+          path: ~/repo
+          persist_to_workspace:
+            root: ~/repo
+          git:
+            depth: 1
+            submodules: false
+            fetch_tags: false
+            url: https://github.com/builuk/QALight_killa_frame.git
 
       # Install dependencies
       - run:
