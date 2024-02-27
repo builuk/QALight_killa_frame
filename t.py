@@ -8,7 +8,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import time
 from helper.pages.base import *
-#123
 
 driver = webdriver.Chrome()
 driver.set_window_position(2000, 600)
