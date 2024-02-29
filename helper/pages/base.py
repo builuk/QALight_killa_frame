@@ -178,7 +178,7 @@ class TourismCamping(BasePage):
             list_of_items.append(item)
             return list_of_items
         if len(list_of_items) == 0:
-            print("All images are displayed")
+            return True
 
 
     def click_on_list_of_generators(self):

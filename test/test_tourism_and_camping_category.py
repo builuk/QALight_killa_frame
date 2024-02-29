@@ -36,3 +36,15 @@ def check_opening_generators_and_charging_stations_link(browser):
     home.open_menu().click()
     home.open_tourism_camping().click()
     assert browser.title == data.generators_and_charging_stations_link
+
+def check_that_genetarors_images_are_displayed(browser):
+    home = base.BasePage(browser)
+    home.open()
+    home.open_menu().click()
+    home.open_tourism_camping().click()
+    tourism = base.TourismCamping(browser)
+    tourism.open_generators_and_charging_stations_link().click()
+    tourism.click_on_list_of_generators().click()
+    assert tourism.check_images_for_items() is True
+
+
